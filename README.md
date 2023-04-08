@@ -1,22 +1,16 @@
 # C-programming
 //MyString
-2. 구현 기능
+구현 기능
 
 * 유의사항
 
 - strcpy, strcat 을 포함한 모든 string.h 또는 cstring 에서 제공하는 문자열 라이브러리 함수 사용 금지
 
-  (get()은 사용 가능.   getchar() 대신 get을 사용할 것 )
-
 - operator >> 와 operator <<, stoi() 를 제외한 모든 함수는  멤버함수로 구현할 것
 
 - 아래 상세하게 명시하지 않은 모든 기능은 일반 string 클래스와 동일하게 작동하도록 구현할 것
 
-  (애매한 부분이 있으면 반드시 교수에게 직접 문의할 것)
-
-
-
-2.1 기본 기능 (난이도 하. 30점)
+2.1 기본 기능
 
 - default 생성자  MyString::MyString() : 초기 크기 8byte의 문자열 공간을 생성하고 빈 문자열로 초기화 
 
@@ -39,8 +33,6 @@
 - 출력을 위한 연산자 ostream& operator <<(ostream& os, const MyString &str)의 일반 함수 구현
 
 
-
-
 2.2 필수 기능 (난이도 중. 35점)
 
 모든 기능은 기존 string과 동일하게 동작해야 함
@@ -57,20 +49,12 @@
 
               : *this에 str2nd를 연결하여 저장
 
-- 문자열 동등성을 비교하여 bool을 return하는 연산자 bool MyString::operator ==(const MyString &str)과, 
+- 문자열 동등성을 비교하여 bool을 return하는 연산자 bool MyString::operator ==(const MyString &str)과, bool MyString::operator !=(const MyString &str)
 
-                                                                                   bool MyString::operator !=(const MyString &str)
-
-- 부분문자열을 찾아 위치를 return하는 int MyString::find(const char *subStr)과
-
-                                                            int MyString::find(const MyString subStr)                    
+- 부분문자열을 찾아 위치를 return하는 int MyString::find(const char *subStr)과int MyString::find(const MyString subStr)                    
 
   pos위치로부터 부분문자열을 찾아 위치를 return하는 int MyString::find(int pos, const char *subStr)과
-
-                                                                 int MyString::find(int pos, const MyString subStr)
-
-    : 부분 문자열이 없으면 -1 return
-
+  int MyString::find(int pos, const MyString subStr): 부분 문자열이 없으면 -1 return
 
 
 2.3 추가 기능 (난이도 중상. 35점)
@@ -85,19 +69,12 @@
 
 - 연결대입연산자 operator += (char *str2nd) : *this에 str2nd 문자열을 연결하여 저장
 
-- 문자열 비교연산자 operator <(MyString), operator <=(MyString), 
+- 문자열 비교연산자 operator <(MyString), operator <=(MyString), operator >(MyString), operator >=(MyString)
 
-                               operator >(MyString), operator >=(MyString)
+- 문자열 비교연산자 operator <(char *), operator <=(char *), operator >(char *), operator >=(char *)
 
-- 문자열 비교연산자 operator <(char *), operator <=(char *), 
-
-                               operator >(char *), operator >=(char *)
-
-- 부분문자열 추출 substr(int pos, int cnt) : 문자열 내에서 pos 위치로부터 cnt 개의 글자를 
-                                  새로운 MyString 객체에 복사하여 return
-- 삽입 insert(int pos, char *subStr), insert(int pos, MyString subStr)
-
-   : pos 위치에 subStr 문자열을 끼워넣기
+- 부분문자열 추출 substr(int pos, int cnt) : 문자열 내에서 pos 위치로부터 cnt 개의 글자를 새로운 MyString 객체에 복사하여 return
+- 삽입 insert(int pos, char *subStr), insert(int pos, MyString subStr) : pos 위치에 subStr 문자열을 끼워넣기
 
 - 대체 replace(int pos, int cnt, char *subStr), replace(int, int, MyString)
    : pos 위치에서 cnt길이의 부분문자열을 subStr로 대체
@@ -105,13 +82,10 @@
 - 삭제 erase(int pos, int cnt) : pos 위치에서 cnt 길이의 부분문자열을 삭제
 
 - 일반함수 int stoi(const MyString &str, int pos = 0 , int base = 10) 
-
-         : str[pos]로부터의 숫자부분을 정수로 변환하여 return. 
-
-           base는 2~16값이 들어올 수 있으며 str[idx]로부터의 숫자부가 2진수~16진수일 수 있음을 의미
+: str[pos]로부터의 숫자부분을 정수로 변환하여 return. 
+base는 2~16값이 들어올 수 있으며 str[idx]로부터의 숫자부가 2진수~16진수일 수 있음을 의미
 
 - operator [](int pos) : at(pos)와 동일한 기능 수행
-
 
 //finalProject                                      
 A대학의 B본부는 학생과 교직원, 일반인으로부터 기탁받은 발전기금을 관리한다. 기탁받은 발전기금에 대한 정보는 파일에 저장된다. 발전기금 목록을 single-user 기반으로 관리하는 C++프로그램을 작성하시오.
